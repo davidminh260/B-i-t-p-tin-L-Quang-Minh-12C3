@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài Kiểm Tra Tin Học 12</title>
+    <style>
+        /* Thiết lập chung */
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f0f0f0;
+            color: #333;
+            padding: 20px;
+        }
+
+        /* Thanh menu đơn giản */
+        nav {
+            background-color: #007bff;
+            padding: 10px;
+            margin-bottom: 30px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            font-weight: bold;
+        }
+
+        /* Khu vực các ô nội dung */
+        .container {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .o-vuong {
+            background-color: white;
+            border: 2px solid #007bff;
+            padding: 20px;
+            width: 150px;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        /* Hiệu ứng khi di chuột vào */
+        .o-vuong:hover {
+            background-color: #007bff;
+            color: white;
+        }
+
+        /* Cửa sổ thông báo (Modal) */
+        #modal {
+            display: none; /* Mặc định ẩn đi */
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: white;
+            padding: 30px;
+            border: 3px solid #333;
+            box-shadow: 0 0 10px rgba(0,0,0,0.5);
+            z-index: 10;
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="#">Trang chủ</a>
+        <a href="#">Bài tập</a>
+        <a href="#">Liên hệ</a>
+    </nav>
+
+    <h1>KIẾN THỨC VẬT LÝ 12</h1>
+    <p>Nhấn vào các ô để xem chi tiết</p>
+
+    <div class="container">
+        <div class="o-vuong" onclick="hienThi('Định luật I', 'ΔU = A + Q')">
+            Nhiệt động lực
+        </div>
+
+        <div class="o-vuong" onclick="hienThi('Quang điện', 'ε = h.f')">
+            Lượng tử sáng
+        </div>
+
+        <div class="o-vuong" onclick="hienThi('Hạt nhân', 'E = m.c²')">
+            Vật lý hạt nhân
+        </div>
+    </div>
+
+    <div id="modal">
+        <h2 id="tieude"></h2>
+        <p id="noidung"></p>
+        <button onclick="dongLai()">Đóng</button>
+    </div>
+
+    <script>
+        // Hàm hiện thông báo
+        function hienThi(ten, chitiet) {
+            document.getElementById('tieude').innerText = ten;
+            document.getElementById('noidung').innerText = chitiet;
+            document.getElementById('modal').style.display = 'block';
+        }
+
+        // Hàm đóng thông báo
+        function dongLai() {
+            document.getElementById('modal').style.display = 'none';
+        }
+    </script>
+
+</body>
+</html>
